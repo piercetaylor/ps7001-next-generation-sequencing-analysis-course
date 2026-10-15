@@ -1,0 +1,234 @@
+#This list is a compilation of useful commands for the M6E1 exercise, and will help you in your RNA-Seq analysis
+
+#--------------------create project files------------------------ 
+mkdir -p project/{data/{raw,trimmed},references/{genome,annotation,star_index,sra_info},results/{alignments,qc,counts},scripts}
+
+tree project/
+
+
+#-------------------------SRA fetch------------------------------
+
+esearch -db gds -query "GSE" | efetch -format runinfo > references/sra_info/GSE_runinfo.txt
+
+# Set the 12 samples we want (full names as in the run info file)
+SAMPLES="CRT1-Col_root_treated_1-1 CRT2-Col_root_treated_2-1 CRT3-Col_root_treated_3-1 ORT1-opt3-2_root_treated_1-1 ORT2-opt3-2_root_treated_2-1 ORT3-opt3-2_root_treated_3-1 CRN1-1 CRN2-1 CRN3-1 ORN1-1 ORN2-1 ORN3-1"
+
+# Parse the GSE128157_runinfo.txt file for Sample name, GSM accession, and SRX
+awk -v samples="$SAMPLES" '
+BEGIN {
+    split(samples, a, " ")
+    print "sample,GSM,SRX"
+}
+/Sample[[:space:]]+Accession:/ { gsm=$3 }
+/SRA Run Selector:/ {
+    match($0,/SRX[0-9]+/,srx)
+    if(name_in_list) { print name_in_list "," gsm "," srx[0] }
+    name_in_list=""
+}
+/^[0-9]+\. / {
+    name_in_list=""
+    line=$0
+    for(i in a) if(index(line, a[i])) { name_in_list=a[i]; break }
+}
+' references/sra_info/GSE128157_runinfo.txt > references/sra_info/GSE128157_selected_samples.csv
+
+mkdir -p data/raw
+CSV="references/sra_info/GSE128157_selected_samples.csv"
+TMP="${CSV}.tmp"
+
+# Open the CSV on fd 3
+exec 3< "$CSV"
+
+# Read and skip the original header
+read -r header <&3
+
+# Write new header to TMP
+echo "${header},SRR" > "$TMP"
+
+while IFS=',' read -r sample gsm srx <&3; do
+    echo "Processing $sample ($srx)..."
+    
+    # Fetch SRR IDs
+    mapfile -t srrs < <(esearch -db sra -query "$srx" | efetch -format runinfo | tail -n +2 | cut -d, -f1)
+    srr=$(printf "%s;" "${srrs[@]}")
+    srr=${srr%;} 
+
+    # Append row with SRR
+    echo "${sample},${gsm},${srx},${srr}" >> "$TMP"
+
+done
+
+# Close fd 3
+exec 3<&-
+
+mv "$TMP" "$CSV"
+
+echo "Updated $CSV with SRR column."
+
+set -euo pipefail
+
+CSV="references/sra_info/GSE128157_selected_samples.csv"
+RAW_DIR="data/raw"
+mkdir -p "$RAW_DIR"
+N_JOBS=8  # number of parallel downloads
+
+download_srr() {
+    local sample="$1"
+    local srr="$2"
+
+    if [[ -f "$RAW_DIR/${srr}.fastq.gz" ]]; then
+        echo "Skipping $sample ($srr), already downloaded."
+        return
+    fi
+
+    echo "Downloading $srr for $sample..."
+
+    fasterq-dump "$srr" --outdir "$RAW_DIR" --split-files --threads 2
+
+    for fq in "$RAW_DIR/${srr}"*.fastq; do
+        [[ -f "$fq" ]] || continue
+        pigz -p 4 -f "$fq"      
+        gzfile="${fq}.gz"        
+        if [[ "$gzfile" == *"_1.fastq.gz" ]]; then
+            mv "$gzfile" "$RAW_DIR/${sample}_R1.fastq.gz"
+        elif [[ "$gzfile" == *"_2.fastq.gz" ]]; then
+            mv "$gzfile" "$RAW_DIR/${sample}_R2.fastq.gz"
+        else
+            mv "$gzfile" "$RAW_DIR/${sample}_R1.fastq.gz"   # single-end fallback
+        fi
+    done
+}
+
+export -f download_srr
+export RAW_DIR
+
+tail -n +2 "$CSV" | while IFS=',' read -r sample gsm srx srr; do
+    echo "$sample,$srr"
+done | parallel -j "$N_JOBS" --colsep ',' download_srr {1} {2}
+
+wait
+echo "All downloads finished."
+
+#------------------------------Fastp Usage------------------------------
+
+mkdir -p results/qc/trimmed_fastp/
+
+for file in data/raw/*.fastq.gz
+do
+  base=$(basename "$file" .fastq.gz)
+  fastp \
+    -i "$file" \
+    -o "data/trimmed/${base}_trimmed.fastq.gz" \
+    --html "results/qc/trimmed_fastp/${base}_fastp_out.html" \
+    --json "results/qc/trimmed_fastp/${base}_fastp_out.json" \
+    --thread 8 \
+    --detect_adapter_for_pe \
+    --trim_front1 5 \
+    --cut_tail \
+    --length_required 30
+done
+
+#----------------------STAR INDEX-------------------------------
+
+# Download the TAIR10 GTF gene annotation
+wget -O references/annotation/Arabidopsis_thaliana.TAIR10.62.gtf.gz \
+"https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-62/gtf/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.62.gtf.gz"
+
+# Download the TAIR10 Genome DNA file
+wget -O references/genome/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz \
+"https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-62/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz"
+
+#gunzip both genome and gtf
+gunzip references/annotation/Arabidopsis_thaliana.TAIR10.62.gtf.gz
+gunzip references/genome/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz
+
+#make Star index
+STAR --runThreadN 8 \
+     --runMode genomeGenerate \
+     --genomeDir references/star_index \
+     --genomeFastaFiles references/genome/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa \
+     --sjdbGTFfile references/annotation/Arabidopsis_thaliana.TAIR10.62.gtf \
+     --genomeSAindexNbases 12 \
+     --sjdbOverhang 99
+
+#-------------------------STAR Alignment-------------------------------
+
+set -euo pipefail
+
+# Directories & threads (CPU cores)
+TRIMMED_DIR="data/trimmed"
+ALIGN_DIR="results/alignments"
+STAR_INDEX="references/star_index"
+THREADS=8
+
+# Linux temp directory for STAR FIFOs
+TMP_DIR="/local/scratch/$USER"
+
+
+
+shopt -s nullglob
+FASTQ_FILES=("$TRIMMED_DIR"/*_R1_trimmed.fastq.gz)
+if [ ${#FASTQ_FILES[@]} -eq 0 ]; then
+    echo "No R1 FASTQ files found in $TRIMMED_DIR. Exiting."
+    exit 1
+fi
+
+# STAR loop
+for fq1 in "${FASTQ_FILES[@]}"; do
+    # Strip the _R1_trimmed.fastq.gz suffix to get sample name
+    sample=$(basename "$fq1" _R1_trimmed.fastq.gz)
+
+    echo "-------------------------------"
+    echo "Running STAR for sample $sample"
+    echo "-------------------------------"
+
+    STAR --runThreadN "$THREADS" \
+         --genomeDir "$STAR_INDEX" \
+         --readFilesIn "$fq1" \
+         --readFilesCommand zcat \
+         --outFileNamePrefix "$ALIGN_DIR/${sample}_" \
+         --outSAMtype BAM SortedByCoordinate \
+         --quantMode GeneCounts \
+         --outTmpDir "$TMP_DIR/${sample}"
+
+    echo "Finished STAR for sample $sample"
+done
+
+echo "All samples processed successfully!"
+
+#-------------------qualimap----------------------------
+mkdir -p results/qc/qualimap/
+
+for bam in results/alignments/*.bam; do
+    sample=$(basename "$bam" .bam)
+    outdir="results/qc/qualimap/${sample}"
+    mkdir -p "$outdir"
+
+    echo "Running QualiMap RNA-seq for $sample..."
+
+    qualimap rnaseq \
+        -bam "$bam" \
+        -a proportional \
+        -outdir "$outdir" \
+        -p strand-specific-reverse \
+        -gtf references/annotation/Arabidopsis_thaliana.TAIR10.62.gtf \
+        --java-mem-size=8G
+
+done
+
+#-------------------------multiqc--------------------------
+multiqc -n results/qc/multiqc_report/multiqc_report_rnaseq \
+results/qc/trimmed_fastp/* \
+results/alignments/*Log.final.out \
+results/qc/qualimap/*
+
+#----------------------featureCounts----------------------
+featureCounts \
+  -T 8 \
+  -s 0\
+  -t exon \
+  -g gene_id \
+  -a references/annotation/Arabidopsis_thaliana.TAIR10.62.gtf \
+  -o results/counts/featureCounts_gene_counts.txt \
+  results/alignments/*Aligned.sortedByCoord.out.bam
+
