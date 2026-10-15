@@ -1,0 +1,42 @@
+name: module_7_dapseq
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  # Data acquisition
+  - sra-tools
+  - entrez-direct
+  
+  # QC and preprocessing
+  - fastqc
+  - fastp
+  - multiqc
+  
+  # Alignment (CRITICAL for DAP-seq)
+  - bowtie2
+  
+  # BAM processing
+  - samtools
+  - bamtools
+  - picard
+  - htslib
+  - tabix
+  
+  # Peak analysis
+  - bedtools
+  - bedops
+  - macs2
+  
+  # Visualization
+  - deeptools
+  - ucsc-bedgraphtobigwig
+  - igv
+  
+  # Motif analysis
+  - meme
+  - homer
+  
+  # Utilities
+  - pigz
+  - parallel

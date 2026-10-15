@@ -1,0 +1,22 @@
+name: module_5_STAR
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - fastp
+  - multiqc
+  - star
+  - samtools
+  - deeptools
+  - salmon
+  - sra-tools
+  - gffread
+  - bedtools
+  - subread
+  - entrez-direct
+  - ucsc-wigtobigwig
+  - pigz
+  - qualimap
+
+

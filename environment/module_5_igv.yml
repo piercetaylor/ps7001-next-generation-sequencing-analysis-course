@@ -1,0 +1,25 @@
+name: module_5_IGV
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - igv
+  - samtools
+  - igvtools
+  - deeptools
+  - bedtools
+  - regtools
+  - rMATS
+  - ucsc-wigtobigwig
+  - ucsc-fatotwobit
+  - qualimap
+  - multiqc
+  - pigz 
+  - entrez-direct
+  - subread
+  - stringtie
+  - gffcompare
+  

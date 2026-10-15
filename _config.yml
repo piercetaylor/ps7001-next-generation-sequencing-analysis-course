@@ -1,0 +1,54 @@
+# Jupyter Book (1.x) configuration
+title: "PS4001/PS7001: Next-Generation Sequencing Analysis"
+author: Pierce Taylor
+copyright: "2026"
+logo: ""
+only_build_toc_files: true
+
+# Notebooks need the Hellbender HPC, SLURM, Bash/R kernels and large data,
+# so they are never executed during the book build.
+execute:
+  execute_notebooks: "off"
+
+exclude_patterns:
+  - _build
+  - .github
+  - .venv
+  - "data/geo/**"
+  - "data/reference/**"
+  - "data/fastq/**"
+  - "data/practice/**"
+  - "**.ipynb_checkpoints"
+
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - amsmath
+    - deflist
+    - html_image
+    - linkify
+    - substitution
+
+repository:
+  url: https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course
+  branch: main
+
+html:
+  use_repository_button: true
+  use_issues_button: false
+  use_edit_page_button: false
+  home_page_in_navbar: true
+
+launch_buttons:
+  notebook_interface: jupyterlab
+  binderhub_url: "https://mybinder.org"
+
+sphinx:
+  config:
+    html_show_copyright: true
+    # In-notebook HTML anchors (<a id=...>) and %%bash cells in Python-kernel
+    # notebooks are valid in Jupyter but produce Sphinx noise:
+    suppress_warnings: ["myst.header", "myst.xref_missing", "misc.highlighting_failure"]
+    myst_heading_anchors: 3
+    nb_merge_streams: true

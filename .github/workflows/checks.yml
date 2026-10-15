@@ -1,0 +1,33 @@
+name: checks
+
+# Runs on every pull request: link check, book build (no deploy) and a
+# repository size guard.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check relative links, images and _toc.yml
+        run: python tools/check_links.py
+
+      - name: No file larger than 10 MB
+        run: |
+          big=$(find . -path ./.git -prune -o -type f -size +10M -print)
+          if [ -n "$big" ]; then echo "Files over 10 MB:"; echo "$big"; exit 1; fi
+
+      - name: Build the book (no execution)
+        run: |
+          pip install "jupyter-book>=1.0,<2"
+          jupyter-book build . --warningiserror --keep-going
