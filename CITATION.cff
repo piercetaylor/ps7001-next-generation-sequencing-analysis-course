@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you refer to these course materials, please cite them as below. Cite the datasets and software listed in data/README.md and ACKNOWLEDGMENTS.md separately."
+title: "PS4001/PS7001: Next-Generation Sequencing Analysis (course materials)"
+type: software
+authors:
+  - family-names: Taylor
+    given-names: Pierce
+license-url: "https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course/blob/main/LICENSE"
+repository-code: "https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course"
+date-released: "2026-10-15"
+keywords:
+  - bioinformatics
+  - next-generation sequencing
+  - RNA-seq
+  - DAP-seq
+  - HPC
+  - teaching
