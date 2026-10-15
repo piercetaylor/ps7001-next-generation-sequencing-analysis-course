@@ -45,12 +45,47 @@ was changed.
    Jackson, Cerveau & Posnien (2024) Frontiers in Zoology 21:17.
 
 6. Public datasets (NCBI GEO/SRA, EMBL-EBI ENA, Ensembl Plants, TAIR, and
-   Bioconductor data packages). None of these are redistributed here. They
-   are downloaded by data/fetch_data.sh and remain under the terms of their
-   providers (see data/README.md).
+   Bioconductor data packages). Apart from the airway tables in item 9,
+   none of these are redistributed here. They are downloaded by
+   data/fetch_data.sh and remain under the terms of their providers (see
+   data/README.md).
 
 7. Software tools that the course teaches (fastp, Salmon, STAR, DESeq2,
    MACS2, HOMER, IGV, BLAST+, SRA Toolkit, etc.) are not redistributed and
    remain under their own licenses.
 
 8. Trademarks and logos that appear in screenshots belong to their owners.
+
+9. EXCEPTION: material licensed under CC BY-NC-SA 4.0.
+   The following files are adapted from, or copied from, the 4-VA JMU 2017
+   Biological Data Science Workshop by Stephen Turner (University of
+   Virginia), https://github.com/4va/biodatasci, lesson "Count-Based
+   Differential Expression Analysis of RNA-seq Data"
+   (https://4va.github.io/biodatasci/r-rnaseq-airway.html):
+
+     modules/module_4_rnaseq_in_r/lab/M4L3_Graphing_RNA_Seq_Results.ipynb
+     modules/module_4_rnaseq_in_r/lab/images/M4L3_Graphing_RNA_Seq_Results_28fd7d8a.png
+     data/airway/airway_scaledcounts.csv
+     data/airway/airway_metadata.csv
+     data/airway/annotables_grch38.csv (downloaded by data/fetch_data.sh,
+                                        not committed)
+     data/airway/NOTICE.txt
+
+   The original material is licensed under the Creative Commons
+   Attribution-NonCommercial-ShareAlike 4.0 International License
+   (CC BY-NC-SA 4.0). As the ShareAlike condition requires, these files,
+   including Pierce Taylor's changes to them, are distributed under
+   CC BY-NC-SA 4.0 and NOT under the "all rights reserved" notice above.
+   You may share and adapt them for non-commercial purposes, with
+   attribution, under the same license. The changes made are listed at the
+   top of the notebook and in ACKNOWLEDGMENTS.md.
+
+   Summary (deed): https://creativecommons.org/licenses/by-nc-sa/4.0/
+   Full legal code: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+   A copy of the legal code is in LICENSES/CC-BY-NC-SA-4.0.txt.
+
+   The annotation table annotables_grch38.csv originates from the
+   annotables R package by Stephen Turner (GPL-3,
+   https://github.com/stephenturner/annotables), built from Ensembl data,
+   and the airway tables derive from GEO series GSE52778 and the
+   Bioconductor "airway" package (Himes et al. 2014, PLoS One 9:e99625).

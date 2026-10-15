@@ -90,3 +90,9 @@ jupyter_execute/
 # Small public-derived example files are committed on purpose (provenance in data/README.md)
 !data/examples/
 !data/examples/*
+
+# Downloaded airway annotation (7.7 MB, fetched by data/fetch_data.sh airway_tables)
+data/airway/annotables_grch38.csv
+# Files written by the M4L2/M4L3 notebooks when they are run
+modules/module_4_rnaseq_in_r/lab/sigresults.csv
+modules/module_4_rnaseq_in_r/lab/iron_genes_roots.png

@@ -22,7 +22,11 @@
 #   dapseq     GSE60141 DAP-seq FASTQs (ARF5, ARF2, ARF16, beads) (Module 7)
 #   gse72548   GSE72548 RNA-seq FASTQs, 24 runs (Module 6 exercise)        large
 #   airway     GSE52778 airway RNA-seq FASTQs, 8 runs (reference only)     large
-#   small      geo + a check of the committed examples (what Binder needs)
+#   airway_tables  annotables_grch38.csv for M4L3 into data/airway/ (the two
+#              airway CSVs are committed); CC BY-NC-SA 4.0, see
+#              data/airway/NOTICE.txt                                     ~8 MB
+#   small      geo + airway_tables + a check of the committed examples
+#              (what Binder needs)
 #   all        every target above
 #
 # Requirements: bash, curl, gzip, awk, head. FASTQ targets use HTTPS downloads from ENA; if
@@ -186,6 +190,15 @@ fetch_airway() {  # Himes et al. 2014 (GSE52778); same runs as the Bioconductor 
     done
 }
 
+fetch_airway_tables() {  # M4L3: 4va/biodatasci data files (Stephen Turner, CC BY-NC-SA 4.0)
+    local base="https://raw.githubusercontent.com/4va/biodatasci/master/data"
+    download "${base}/annotables_grch38.csv" "$DATA_DIR/airway/annotables_grch38.csv"
+    local f
+    for f in airway_scaledcounts.csv airway_metadata.csv; do   # committed; re-download only if missing
+        download "${base}/${f}" "$DATA_DIR/airway/${f}"
+    done
+}
+
 check_examples() {
     local f
     for f in ExampleFasta.txt Potential_Iron_Homeostasis_Genes_Arabidopsis.txt Common_Genes_Arabidopsis.txt ATOPT3.fa; do
@@ -194,7 +207,7 @@ check_examples() {
     log "committed example files present"
 }
 
-[[ $# -ge 1 ]] || { sed -n '2,32p' "$0"; exit 1; }
+[[ $# -ge 1 ]] || { sed -n '2,36p' "$0"; exit 1; }
 for target in "$@"; do
     case "$target" in
         geo)       fetch_geo ;;
@@ -206,8 +219,9 @@ for target in "$@"; do
         dapseq)    fetch_dapseq ;;
         gse72548)  fetch_gse72548 ;;
         airway)    fetch_airway ;;
-        small)     check_examples; fetch_geo ;;
-        all)       check_examples; fetch_geo; fetch_reference; fetch_blast; fetch_practice
+        airway_tables) fetch_airway_tables ;;
+        small)     check_examples; fetch_geo; fetch_airway_tables ;;
+        all)       check_examples; fetch_geo; fetch_airway_tables; fetch_reference; fetch_blast; fetch_practice
                    fetch_opt3; fetch_cd; fetch_dapseq; fetch_gse72548; fetch_airway ;;
         *) log "unknown target: $target"; exit 1 ;;
     esac

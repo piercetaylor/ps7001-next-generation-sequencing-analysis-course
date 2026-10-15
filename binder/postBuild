@@ -3,5 +3,5 @@
 set -euo pipefail
 python -m bash_kernel.install --sys-prefix
 R -e "IRkernel::installspec(user = FALSE)"
-# Download the small public GEO count tables the R notebooks read (about 4 MB).
+# Download the small public GEO count tables and the M4L3 airway annotation the R notebooks read (about 12 MB).
 bash data/fetch_data.sh small

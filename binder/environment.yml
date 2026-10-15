@@ -1,5 +1,5 @@
 # Binder environment: enough to run the lightweight R notebooks
-# (M4L1, M4P1, M4P2, M4E1, M6P2) and to read the Bash notebooks.
+# (M4L1, M4L2, M4L3, M4P1, M4P2, M4E1, M6P2) and to read the Bash notebooks.
 # HPC tools (STAR, Salmon, MACS2, HOMER, ...) are intentionally not included;
 # see environment/ for the full course environments.
 name: ngs-course-binder
