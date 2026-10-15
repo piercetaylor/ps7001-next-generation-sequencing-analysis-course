@@ -40,7 +40,7 @@ end of the course students can:
 | [1](modules/module_1_bash_hpc/README.md) | Bash and HPC basics | Bash on Hellbender, conda environments, Bash scripting, BLAST scripting |
 | [2](modules/module_2_ngs_preprocessing/README.md) | NGS data and pre-processing | Sequencing techniques, file formats, AWK/Bash utilities, fastp trimming and QC |
 | [3](modules/module_3_rnaseq_pseudoalignment/README.md) | RNA-seq I: pseudo-alignment | Sourcing data from GEO/SRA, fastp, Salmon, first DESeq2 analysis |
-| [4](modules/module_4_rnaseq_in_r/README.md) | RNA-seq in R | Data carpentry, DE analysis, functional analysis (GSE79275) |
+| [4](modules/module_4_rnaseq_in_r/README.md) | RNA-seq in R | Data carpentry, ggplot2 figures, plotting DE results, DE analysis, functional analysis (GSE79275) |
 | [5](modules/module_5_genome_alignment/README.md) | Genome alignment | Alignment formats, STAR, IGV (GSE128157) |
 | [6](modules/module_6_full_rnaseq_workflow/README.md) | Full RNA-seq workflow | HPC review, pipelines, RStudio, DESeq2 study design, independent analysis (GSE72548) |
 | [7](modules/module_7_dap_seq/README.md) | DAP-seq | DAP/ChIP/ATAC overview, MACS2 peak calling, motifs, annotation, IGV (GSE60141) |
@@ -64,7 +64,8 @@ to nf-core/Nextflow and Galaxy.
 modules/        teaching notebooks: module_N_<topic>/{lab,practice,exercise,resources}/
 pipelines/      staged Bash pipelines: rnaseq_salmon/, rnaseq_star/, dap_seq/
 environment/    deduplicated conda environment files
-data/           README with accessions and citations, fetch_data.sh, small committed examples
+data/           README with accessions and citations, fetch_data.sh, small committed examples, airway/ (M4L3, CC BY-NC-SA 4.0)
+LICENSES/       full text of third-party licenses (CC BY-NC-SA 4.0)
 tools/          course-operations scripts (weekly deployment, answer release) and check_links.py
 binder/         lightweight environment for running the R notebooks on Binder
 _config.yml, _toc.yml   Jupyter Book site configuration
@@ -92,9 +93,9 @@ bash data/fetch_data.sh small       # count tables for the R notebooks
 bash data/fetch_data.sh opt3        # RNA-seq FASTQs (HPC)
 ```
 
-- **Lightweight R notebooks** (M4L1, M4P1, M4P2, M4E1, M6P2) run on a
+- **Lightweight R notebooks** (M4L1, M4L2, M4L3, M4P1, M4P2, M4E1, M6P2) run on a
   laptop or on Binder. Binder installs `binder/environment.yml` and
-  downloads the GEO count tables automatically.
+  downloads the GEO count tables and the M4L3 airway annotation automatically.
 - **HPC notebooks** have a "Runs on an HPC" note at the top. They expect
   SLURM, `module load mamba`, 8+ cores and 32+ GB RAM, and FASTQ files in the
   tens of GB.
@@ -115,7 +116,7 @@ All sequencing data are public and are downloaded, not committed:
 | [GSE60143](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60143) / GSE60141 (DAP-seq, ARF TFs) | Module 7 | O'Malley et al. 2016, *Cell.* [doi:10.1016/j.cell.2016.04.038](https://doi.org/10.1016/j.cell.2016.04.038) |
 | [GSE72548](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE72548) (cytokinin, nematode) | Module 6 | Shanks et al. 2016, *MPMI.* [doi:10.1094/MPMI-07-15-0156-R](https://doi.org/10.1094/MPMI-07-15-0156-R) |
 | SRR1971253 | Module 2 practice | Tan et al. 2015, *eLife* (citation to be confirmed) |
-| GSE52778 / Bioconductor `airway` | Listed for completeness | Himes et al. 2014, *PLoS One.* [doi:10.1371/journal.pone.0099625](https://doi.org/10.1371/journal.pone.0099625) |
+| GSE52778 / Bioconductor `airway` (tables from 4va/biodatasci, CC BY-NC-SA 4.0) | Module 4 (M4L3) | Himes et al. 2014, *PLoS One.* [doi:10.1371/journal.pone.0099625](https://doi.org/10.1371/journal.pone.0099625) |
 | Ensembl Plants release 62 TAIR10; TAIR10 blast sets | References | Yates et al. 2022; Lamesch et al. 2012 |
 
 Full accessions, run IDs, terms of use and citations are in
@@ -132,11 +133,14 @@ its license and the changes made.
 | Source | License | Adapted in |
 |---|---|---|
 | Harvard Chan Bioinformatics Core (HBC): [Intro-to-DGE](https://hbctraining.github.io/Intro-to-DGE/), [Intro-to-rnaseq-hpc-O2](https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/), [Intro-to-ChIPseq](https://hbctraining.github.io/Intro-to-ChIPseq/) | CC BY 4.0 | M4L4, M4P1, M4P2, M6P2, M5L1 (STAR section), M7L3 (QC/MACS2 sections) |
+| Stephen Turner (UVA), [Count-Based Differential Expression Analysis of RNA-seq Data](https://4va.github.io/biodatasci/r-rnaseq-airway.html), 4-VA JMU 2017 Biological Data Science Workshop ([4va/biodatasci](https://github.com/4va/biodatasci)) | CC BY-NC-SA 4.0 | M4L3 and the `data/airway/` tables. **These are shared under CC BY-NC-SA 4.0** (see [LICENSE](LICENSE), item 9) |
 | Ram Basnet, [Bash-Script-Fundamentals](https://github.com/rambasnet/Bash-Script-Fundamentals) | MIT | M1P2 and the Module 1 demo scripts |
 | GeoHackWeek conda tutorial; nf-core metro maps; figures from Love et al. 2014 and Jackson et al. 2024 | CC BY 4.0 / MIT | Single images, credited where they appear |
 
-Material adapted from sources with NonCommercial, ShareAlike or no public
-license was **left out** (see below).
+Material adapted from sources with NoDerivatives or no public license was
+**left out** (see below). M4L2, which had followed examples from *R for
+Data Science* (CC BY-NC-ND 3.0), was rewritten from scratch with new text,
+examples and exercises on the GSE79275 data.
 
 ## Excluded material
 
@@ -146,8 +150,6 @@ licenses, these were **not** published:
 - answer keys (`*_A.ipynb`, `Development/answers/`), grading files,
   completed exercise scripts (`blast.sh`, `practice2.sh`, the M3E1 R
   script), and all student folders and work;
-- M4L3 (adapted from a CC BY-NC-SA course) and M4L2 (examples from CC
-  BY-NC-ND *R for Data Science*);
 - M1L1, M0L1, `Module_0/Extra/` and `Data_Sci_R_Practice/` (MU Data
   Science & Analytics material with no public license);
 - third-party figures that are not openly licensed or whose source is
@@ -185,4 +187,7 @@ push to `main`.
 Copyright (c) 2026 Pierce Taylor. **All rights reserved**, except for the
 third-party material listed in [LICENSE](LICENSE) and
 [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md), which stays under its original
-license. Datasets and software keep their own terms.
+license. In particular, M4L3 and the `data/airway/` tables are distributed
+under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+(legal code in [`LICENSES/CC-BY-NC-SA-4.0.txt`](LICENSES/CC-BY-NC-SA-4.0.txt)).
+Datasets and software keep their own terms.
