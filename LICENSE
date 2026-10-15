@@ -1,0 +1,56 @@
+Copyright (c) 2026 Pierce Taylor. All rights reserved.
+
+This repository contains teaching materials (Jupyter notebooks, Markdown
+documents, figures, and Bash/R scripts) written by Pierce Taylor for the
+course PS4001/PS7001, Next-Generation Sequencing Analysis.
+
+Except where noted below, no license is granted to copy, modify, publish,
+distribute, sublicense, or sell any part of this repository. The material
+is made publicly viewable as a portfolio. Viewing it, and forking it within
+GitHub as GitHub's Terms of Service allow, does not grant any further rights.
+For permission requests, please open an issue in this repository.
+
+-------------------------------------------------------------------------
+THIRD-PARTY MATERIAL IS EXCLUDED FROM THIS NOTICE
+-------------------------------------------------------------------------
+
+The "all rights reserved" notice above covers only the original work of
+Pierce Taylor. The third-party material listed below is NOT covered by it
+and stays under its original license or terms. ACKNOWLEDGMENTS.md has the
+full attribution for each item, and each affected notebook also has an
+"Adapted from" note at the top that lists the source, its license, and what
+was changed.
+
+1. Harvard Chan Bioinformatics Core (HBC) training materials
+   (hbctraining/Intro-to-DGE, hbctraining/Intro-to-rnaseq-hpc-O2,
+   hbctraining/Intro-to-ChIPseq, hbctraining/Training-modules).
+   Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0),
+   https://creativecommons.org/licenses/by/4.0/.
+   Lesson text and figures adapted from these materials are shared under
+   CC BY 4.0, with attribution and a note of the changes made.
+
+2. "Bash-Script-Fundamentals" demo scripts by Ram Basnet
+   (https://github.com/rambasnet/Bash-Script-Fundamentals).
+   MIT License, Copyright (c) 2019 Ram Basnet. The full license text is in
+   modules/module_1_bash_hpc/resources/demo_scripts/LICENSE-MIT-rambasnet.
+
+3. GeoHackWeek conda diagram (https://geohackweek.github.io/datasharing/).
+   CC BY 4.0.
+
+4. nf-core pipeline "metro map" diagrams (nf-core/rnaseq, nf-core/chipseq).
+   MIT License, Copyright (c) the nf-core community.
+
+5. Figures reproduced from open-access articles under CC BY 4.0:
+   Love, Huber & Anders (2014) Genome Biology 15:550, and
+   Jackson, Cerveau & Posnien (2024) Frontiers in Zoology 21:17.
+
+6. Public datasets (NCBI GEO/SRA, EMBL-EBI ENA, Ensembl Plants, TAIR, and
+   Bioconductor data packages). None of these are redistributed here. They
+   are downloaded by data/fetch_data.sh and remain under the terms of their
+   providers (see data/README.md).
+
+7. Software tools that the course teaches (fastp, Salmon, STAR, DESeq2,
+   MACS2, HOMER, IGV, BLAST+, SRA Toolkit, etc.) are not redistributed and
+   remain under their own licenses.
+
+8. Trademarks and logos that appear in screenshots belong to their owners.

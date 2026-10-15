@@ -1,0 +1,92 @@
+# ---------------------------------------------------------------
+# Sequencing / alignment / genome data (fetched by data/fetch_data.sh,
+# never committed)
+# ---------------------------------------------------------------
+*.fastq
+*.fq
+*.fastq.gz
+*.fq.gz
+*.sra
+*.bam
+*.bai
+*.cram
+*.sam
+*.bw
+*.bigwig
+*.bdg
+*.bedgraph
+*.bt2
+*.bin
+*.fa
+*.fasta
+*.fna
+*.fa.gz
+*.fasta.gz
+*.fai
+*.gtf
+*.gtf.gz
+*.gff
+*.gff3
+*.gff.gz
+*.gff3.gz
+*.sf
+*.n??
+*.narrowPeak
+*.narrowPeak.gz
+*.matrix.gz
+*.zip
+*.tar
+*.tar.gz
+
+# Fetched data folders (data/README.md and data/fetch_data.sh are tracked)
+data/raw/
+data/fastq/
+data/geo/
+data/reference/
+data/blast/
+data/dapseq/
+data/tmp/
+references/
+results/
+
+# Generated reports
+*_fastqc.html
+*_fastqc.zip
+multiqc_data/
+multiqc_report.html
+*_fastp.html
+*_fastp.json
+homerResults/
+knownResults/
+*.motif
+
+# Answer keys and grading material (never published)
+*_A.ipynb
+answers/
+grading_files/
+Students/
+finalGrade.txt
+gradebook.sh
+
+# Editor / runtime
+.ipynb_checkpoints/
+.Rproj.user/
+.Rhistory
+.RData
+.Rapp.history
+__pycache__/
+*.pyc
+*.log
+slurm-*.out
+.snapshots/
+.DS_Store
+
+# Jupyter Book build output
+_build/
+.jupyter_cache/
+jupyter_execute/
+.venv/
+
+# Small public-derived example files are committed on purpose (provenance in data/README.md)
+!data/examples/
+!data/examples/*
