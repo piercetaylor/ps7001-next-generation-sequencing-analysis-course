@@ -1,0 +1,12 @@
+name: Module_1
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - jupyter
+  - r-base
+  - r-tidyverse
+  - r-irkernel
+  - r-pheatmap
+  - bioconductor-deseq2

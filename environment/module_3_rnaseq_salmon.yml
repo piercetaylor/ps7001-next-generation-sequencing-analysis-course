@@ -1,0 +1,52 @@
+name: Module_3_Local_Env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python
+  - bash_kernel
+  - r-base=4.3
+  - r-irkernel
+  - r-devtools
+  - r-biocmanager
+  - r-tidyverse
+  - r-tidyr
+  - r-readr
+  - r-dplyr
+  - r-data.table
+  - r-ggplot2
+  - r-cowplot
+  - r-pheatmap
+  - r-upsetr
+  - r-ggrepel
+  - r-reshape2
+  - r-stringi
+  - r-shiny
+  - r-plotly
+  - fastp
+  - salmon
+  - sra-tools
+  - bedtools
+  - samtools
+  - seqkit
+  - seqtk
+  - igv
+  - pigz
+  - bioconductor-deseq2
+  - bioconductor-tximport
+  - bioconductor-apeglm
+  - bioconductor-annotationdbi
+  - bioconductor-clusterprofiler
+  - bioconductor-enrichplot
+  - bioconductor-goseq
+  - bioconductor-pathview
+  - bioconductor-gseabase
+  - bioconductor-geoquery
+  - bioconductor-complexheatmap
+  - bioconductor-genomicfeatures
+  - bioconductor-genomicranges
+  - bioconductor-summarizedexperiment
+  - bioconductor-tximeta
+
