@@ -1,0 +1,98 @@
+# Table of contents for the Jupyter Book site (jupyter-book 1.x).
+# Every module notebook is listed; tools/check_links.py verifies that each entry exists.
+format: jb-book
+root: README
+parts:
+  - caption: Getting started
+    chapters:
+      - file: modules/start_here
+      - file: data/README
+      - file: environment/README
+  - caption: Modules
+    chapters:
+      - file: modules/module_0_orientation/README
+        sections:
+          - file: modules/module_0_orientation/M0L2_Prompting_For_Success
+          - file: modules/module_0_orientation/M0L3_Computing_Resources
+          - file: modules/module_0_orientation/M0L4_NGS_Resources
+      - file: modules/module_1_bash_hpc/README
+        sections:
+          - file: modules/module_1_bash_hpc/module_1_overview
+          - file: modules/module_1_bash_hpc/lab/M1L2_Introduction_To_Bash_Via_Hellbender
+          - file: modules/module_1_bash_hpc/practice/M1P1_Creating_and_Managing_Environments
+          - file: modules/module_1_bash_hpc/practice/M1P2_Intro_To_Bash_Scripting
+          - file: modules/module_1_bash_hpc/practice/M1P3_Use_of_Programs_In_Bash
+          - file: modules/module_1_bash_hpc/exercise/M1E1_Blast_Bash_Scripting
+          - file: modules/module_1_bash_hpc/resources/demo_scripts/README
+      - file: modules/module_2_ngs_preprocessing/README
+        sections:
+          - file: modules/module_2_ngs_preprocessing/module_2_overview
+          - file: modules/module_2_ngs_preprocessing/lab/M2L1_NGS_Overview
+          - file: modules/module_2_ngs_preprocessing/lab/M2L2_Introduction_To_Sequencing_Techniques_And_Data_Structures
+          - file: modules/module_2_ngs_preprocessing/lab/M2L3_Use_Of_Hellbender_Desktop_Via_RSSOnDemand
+          - file: modules/module_2_ngs_preprocessing/lab/M2L4_Sequencing_File_Formats
+          - file: modules/module_2_ngs_preprocessing/practice/M2P1_Pre_Processing_Tools
+          - file: modules/module_2_ngs_preprocessing/practice/M2P2_Bash_Utilities_Practice_and_AWK
+          - file: modules/module_2_ngs_preprocessing/practice/M2P3_Trimming_And_Quality_Control
+          - file: modules/module_2_ngs_preprocessing/exercise/M2E1_Storage_of_Sequencing_And_Genomic_Data
+          - file: modules/module_2_ngs_preprocessing/exercise/M2E2_Pre_Processing
+          - file: modules/module_2_ngs_preprocessing/resources/M2_Loading_Global_Environments
+          - file: modules/module_2_ngs_preprocessing/resources/demo_scripts/README
+      - file: modules/module_3_rnaseq_pseudoalignment/README
+        sections:
+          - file: modules/module_3_rnaseq_pseudoalignment/lab/M3L1_RNA_Seq_Overview
+          - file: modules/module_3_rnaseq_pseudoalignment/lab/M3L2_Sourcing_Data_For_Analysis_Pipelines
+          - file: modules/module_3_rnaseq_pseudoalignment/practice/M3P1_Fastp_on_Arabidopsis_OPT3_Dataset
+          - file: modules/module_3_rnaseq_pseudoalignment/practice/M3P2_Pseudo_Alignment_on_Arabidopsis_OPT3_Dataset
+          - file: modules/module_3_rnaseq_pseudoalignment/exercise/M3E1_RNA_Seq_Analysis
+          - file: modules/module_3_rnaseq_pseudoalignment/resources/demo_scripts/README
+      - file: modules/module_4_rnaseq_in_r/README
+        sections:
+          - file: modules/module_4_rnaseq_in_r/lab/M4L1_Data_carpentry_R
+          - file: modules/module_4_rnaseq_in_r/lab/M4L4_RNA_Seq_Review
+          - file: modules/module_4_rnaseq_in_r/practice/M4P1_Intro_to_DE_Analysis
+          - file: modules/module_4_rnaseq_in_r/practice/M4P2_Functional_Analysis
+          - file: modules/module_4_rnaseq_in_r/exercise/M4E1_GSE79275_Arabidopsis_Data_Analysis
+      - file: modules/module_5_genome_alignment/README
+        sections:
+          - file: modules/module_5_genome_alignment/module_5_overview
+          - file: modules/module_5_genome_alignment/lab/M5L1_Genome_Alignments_and_File_Formats
+          - file: modules/module_5_genome_alignment/lab/M5L2_Data_Fetching_and_Organization
+          - file: modules/module_5_genome_alignment/lab/M5L3_Use_of_STAR
+          - file: modules/module_5_genome_alignment/practice/M5P1_IGV_Usage
+          - file: modules/module_5_genome_alignment/practice/M5P2_IGV_On_GSE128157
+          - file: modules/module_5_genome_alignment/exercise/M5E1_IGV_Write_Up
+      - file: modules/module_6_full_rnaseq_workflow/README
+        sections:
+          - file: modules/module_6_full_rnaseq_workflow/module_6_overview
+          - file: modules/module_6_full_rnaseq_workflow/lab/M6L1_Review_of_Computing_Concepts
+          - file: modules/module_6_full_rnaseq_workflow/lab/M6L2_Project_Management_Review
+          - file: modules/module_6_full_rnaseq_workflow/lab/M6L3_Use_Of_Rstudio
+          - file: modules/module_6_full_rnaseq_workflow/practice/M6P1_Pipelines_and_Scripting_for_RNA_Seq
+          - file: modules/module_6_full_rnaseq_workflow/practice/M6P2_Interactions_and_Study_Design_for_DESeq2
+          - file: modules/module_6_full_rnaseq_workflow/exercise/M6E1_Full_RNA_Seq_Analysis
+      - file: modules/module_7_dap_seq/README
+        sections:
+          - file: modules/module_7_dap_seq/lab/M7L1_DAP_Seq_Overview
+          - file: modules/module_7_dap_seq/lab/M7L2_DAP_Seq_Interpreting_Results
+          - file: modules/module_7_dap_seq/lab/M7L3_DAP_Seq_Analysis_Pipeline
+          - file: modules/module_7_dap_seq/practice/M7P1_DAP_Seq_Analysis_Scripted
+          - file: modules/module_7_dap_seq/exercise/M7E1_DAP_Seq_IGV_Usage
+          - file: modules/module_7_dap_seq/figures/README
+      - file: modules/module_8_capstone/README
+        sections:
+          - file: modules/module_8_capstone/module_8_final_project
+  - caption: Pipelines and tooling
+    chapters:
+      - file: pipelines/README
+        sections:
+          - file: pipelines/rnaseq_salmon/README
+          - file: pipelines/rnaseq_star/README
+          - file: pipelines/dap_seq/README
+      - file: tools/README
+        sections:
+          - file: tools/module_deployments/README
+          - file: tools/answers_deployment/README
+  - caption: About
+    chapters:
+      - file: ACKNOWLEDGMENTS
