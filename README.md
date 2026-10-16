@@ -1,4 +1,4 @@
-# PS4001/PS7001: Next-Generation Sequencing Analysis
+# PS4002/PS7001: Next-Generation Sequencing Analysis
 
 A project-based course on analyzing high-throughput sequencing data: Linux
 and Bash on an HPC cluster, RNA-seq (pseudo-alignment and genome
@@ -9,7 +9,7 @@ on public *Arabidopsis thaliana* iron-homeostasis and cadmium datasets.
 
 **Author:** Pierce Taylor
 
-**Read online:** [piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course](https://piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course/)
+**Read online:** [piercetaylor.github.io/ps7001-next-generation-sequencing-analysis-course](https://piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course/)
 · **Run the R notebooks in the browser:** [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/piercetaylor/ps7002-next-generation-sequencing-analysis-course/main?urlpath=lab/tree/modules/module_4_rnaseq_in_r)
 
 > This repository is a portfolio copy of the course. Answer keys, grading
