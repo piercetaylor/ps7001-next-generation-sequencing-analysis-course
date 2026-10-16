@@ -6,8 +6,8 @@ University of Missouri. Students start with no programming background and
 finish by running their own RNA-seq or DAP-seq analysis on an HPC cluster.
 Most of the work uses public *Arabidopsis* iron-homeostasis and cadmium datasets.
 
-**Read it online:** [piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course](https://piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course/)
-· **Try the R notebooks:** [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/piercetaylor/ps7002-next-generation-sequencing-analysis-course/main?urlpath=lab/tree/modules/module_4_rnaseq_in_r)
+**Read it online:** [piercetaylor.github.io/ps7001-next-generation-sequencing-analysis-course](https://piercetaylor.github.io/ps7001-next-generation-sequencing-analysis-course/)
+· **Try the R notebooks:** [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/piercetaylor/ps7001-next-generation-sequencing-analysis-course/main?urlpath=lab/tree/modules/module_4_rnaseq_in_r)
 
 ## What's in the course
 
@@ -36,8 +36,8 @@ so most are best read rather than run. The Module 4 R notebooks are the
 exception: they run on a laptop or on Binder.
 
 ```bash
-git clone https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course.git
-cd ps7002-next-generation-sequencing-analysis-course
+git clone https://github.com/piercetaylor/ps7001-next-generation-sequencing-analysis-course.git
+cd ps7001-next-generation-sequencing-analysis-course
 mamba env create -f environment/module_3_rnaseq_salmon.yml
 bash data/fetch_data.sh small    # count tables for the R notebooks
 ```

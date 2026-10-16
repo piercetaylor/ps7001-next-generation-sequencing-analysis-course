@@ -31,7 +31,7 @@ parse:
     - substitution
 
 repository:
-  url: https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course
+  url: https://github.com/piercetaylor/ps7001-next-generation-sequencing-analysis-course
   branch: main
 
 html:

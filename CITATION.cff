@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: Taylor
     given-names: Pierce
-license-url: "https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course/blob/main/LICENSE"
-repository-code: "https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course"
+license-url: "https://github.com/piercetaylor/ps7001-next-generation-sequencing-analysis-course/blob/main/LICENSE"
+repository-code: "https://github.com/piercetaylor/ps7001-next-generation-sequencing-analysis-course"
 date-released: "2026-10-15"
 keywords:
   - bioinformatics
