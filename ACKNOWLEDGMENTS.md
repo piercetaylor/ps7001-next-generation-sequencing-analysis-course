@@ -10,6 +10,7 @@ under its own license.
 | Where in this repository | Original source | Authors / organization | License (checked at the source) | What was changed |
 |---|---|---|---|---|
 | `module_4_rnaseq_in_r/lab/M4L4_RNA_Seq_Review.ipynb` | [Introduction to DGE](https://hbctraining.github.io/Intro-to-DGE/) ([hbctraining/Intro-to-DGE](https://github.com/hbctraining/Intro-to-DGE)): "Experimental planning considerations" and the workflow overview | Harvard Chan Bioinformatics Core (HBC) training team | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (statement in the repository README) | Shortened and rewritten. Example data changed to the Arabidopsis iron-homeostasis series GSE79275; pipeline described as fastp + Salmon on the Hellbender HPC; third-party figures removed |
+| `module_4_rnaseq_in_r/lab/M4L3_Graphing_RNA_Seq_Results.ipynb`, its figure `lab/images/M4L3_Graphing_RNA_Seq_Results_28fd7d8a.png`, and `data/airway/` (`airway_scaledcounts.csv`, `airway_metadata.csv`; `annotables_grch38.csv` is downloaded) | [Count-Based Differential Expression Analysis of RNA-seq Data](https://4va.github.io/biodatasci/r-rnaseq-airway.html), 4-VA JMU 2017 Biological Data Science Workshop ([4va/biodatasci](https://github.com/4va/biodatasci)); the CSV files and `countdatacoldata.png` from the same repository | Stephen Turner, University of Virginia (workshop instructor and main author of the repository) | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) (LICENSE file in the repository and the footer of every lesson page). **This notebook and its data files are shared under CC BY-NC-SA 4.0, not under the all-rights-reserved notice** (see [LICENSE](LICENSE), item 9, and [`LICENSES/CC-BY-NC-SA-4.0.txt`](LICENSES/CC-BY-NC-SA-4.0.txt)) | Reduced to the import, DESeq2 and plotting sections; background, "poor man's DGE", pathway and homework sections and the exercises left out; MA and volcano exercises turned into worked `ggplot2` code with line-by-line notes; heat map redone with `pheatmap` (top 50 genes, annotations); paths changed to `data/airway/`; a folder screenshot removed. CSV files and figure unchanged. `annotables_grch38.csv` comes from Stephen Turner's [annotables](https://github.com/stephenturner/annotables) package (GPL-3, Ensembl data) |
 | `module_4_rnaseq_in_r/practice/M4P1_Intro_to_DE_Analysis.ipynb` | Introduction to DGE: DESeq2 lessons (count normalization, sample QC, DE analysis, Wald test) | HBC | CC BY 4.0 | HBC's Mov10 example data replaced with the GSE79275 count matrix (opt3-2/Col-0, with and without Cd); code adapted; questions added; third-party figures removed |
 | `module_4_rnaseq_in_r/practice/M4P2_Functional_Analysis.ipynb` | Introduction to DGE: functional analysis lessons (over-representation analysis, functional class scoring/GSEA) | HBC | CC BY 4.0 | Rewritten for Arabidopsis (TAIR IDs, `org.At.tair.db`, KEGG `ath`) using GSE79275; GO-hierarchy and GSEA figures from journals removed |
 | `module_6_full_rnaseq_workflow/practice/M6P2_Interactions_and_Study_Design_for_DESeq2.ipynb` | Introduction to DGE: "Wald test results" and design-formula material | HBC | CC BY 4.0 | Applied to the GSE79275 genotype x treatment design with interaction terms |
@@ -29,11 +30,25 @@ are **not** in this repository.
 
 | Item in the live course | Source | Problem |
 |---|---|---|
-| M4L3 "Graphing RNA-seq results" (plus `airway_scaledcounts.csv`, `airway_metadata.csv`, `annotables_grch38.csv`, `sigresults.csv`) | [Count-Based Differential Expression Analysis of RNA-seq Data](https://4va.github.io/biodatasci/r-rnaseq-airway.html), UVA *biodatasci* course ([4va/biodatasci](https://github.com/4va/biodatasci)) | CC BY-NC-SA 4.0 (NonCommercial + ShareAlike) |
-| M4L2 "Graph creation in R" | Examples adapted from *R for Data Science*, 1st ed. (Wickham & Grolemund), [r4ds.had.co.nz](https://r4ds.had.co.nz/data-visualisation.html) | CC BY-NC-ND 3.0 US (NonCommercial + NoDerivatives) |
 | M1L1 "Introduction to Jupyter" and its `JH_*` screenshots; M0L1 "Jupyter tips" and its GIFs; `Module_0/Extra/` (Git, JupyterHub); `Module_4/Resources/Data_Sci_R_Practice/` | MU Data Science & Analytics graduate program course material | No public license; the screenshots also show other people's names and usernames |
 | `menu.sh` demo script | LinuxCommand.org (William Shotts), via Bash-Script-Fundamentals | Original license unclear |
 | M3L1 expectation-maximization walkthrough | Appears to follow teaching material by Alexander Lachmann | **Source to be confirmed.** The figures were removed; the text and toy code remain with a note |
+
+### Resolved since the first release
+
+- **M4L3** is now published under CC BY-NC-SA 4.0 as an exception to the
+  all-rights-reserved notice (see the table above). `sigresults.csv` from
+  the live course is an output of the notebook, so it is regenerated rather
+  than committed.
+- **M4L2 "Graph creation in R"** followed the `mpg` walkthrough of
+  *R for Data Science*, 1st ed. (CC BY-NC-ND 3.0 US) and copied some of its
+  sentences. It was **rewritten from scratch** by Pierce Taylor: new text,
+  new examples built on the GSE79275 iron-homeostasis counts, and new
+  exercises. It is no longer an adaptation, so it has no "Adapted from" box
+  and is covered by the repository notice. A check of the new notebook's
+  text found no shared 8-word sequences with the old notebook or with the
+  R4DS chapter, apart from URLs. The notebook points to R4DS and to
+  Wickham's *ggplot2* book under "Further reading".
 
 ## Third-party figures removed
 

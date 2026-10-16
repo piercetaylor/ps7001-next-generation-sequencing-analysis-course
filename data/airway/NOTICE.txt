@@ -1,0 +1,26 @@
+data/airway/: CC BY-NC-SA 4.0 (not covered by the repository's all-rights-reserved notice)
+
+airway_scaledcounts.csv and airway_metadata.csv are copied unchanged from
+the 4-VA JMU 2017 Biological Data Science Workshop by Stephen Turner
+(University of Virginia), https://github.com/4va/biodatasci (data/ folder),
+which is licensed under the Creative Commons Attribution-NonCommercial-
+ShareAlike 4.0 International License (CC BY-NC-SA 4.0):
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+Full legal code: ../../LICENSES/CC-BY-NC-SA-4.0.txt
+
+annotables_grch38.csv (7.7 MB) is not committed. `bash data/fetch_data.sh
+airway_tables` downloads it from the same repository into this folder. It
+is a GRCh38 Ensembl gene annotation table from the annotables R package by
+Stephen Turner (https://github.com/stephenturner/annotables, GPL-3), built
+from Ensembl data.
+
+Underlying data: GEO GSE52778 / Bioconductor package "airway".
+Himes BE, et al. RNA-Seq transcriptome profiling identifies CRISPLD2 as a
+glucocorticoid responsive gene that modulates cytokine function in airway
+smooth muscle cells. PLoS One. 2014;9(6):e99625.
+doi:10.1371/journal.pone.0099625
+Love M. airway: RangedSummarizedExperiment for RNA-Seq in airway smooth
+muscle cells, by Himes et al PLoS One 2014. doi:10.18129/B9.bioc.airway
+
+These files are used only by
+modules/module_4_rnaseq_in_r/lab/M4L3_Graphing_RNA_Seq_Results.ipynb.

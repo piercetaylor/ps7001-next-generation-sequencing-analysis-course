@@ -49,6 +49,8 @@ parts:
       - file: modules/module_4_rnaseq_in_r/README
         sections:
           - file: modules/module_4_rnaseq_in_r/lab/M4L1_Data_carpentry_R
+          - file: modules/module_4_rnaseq_in_r/lab/M4L2_Graph_Creation_in_R
+          - file: modules/module_4_rnaseq_in_r/lab/M4L3_Graphing_RNA_Seq_Results
           - file: modules/module_4_rnaseq_in_r/lab/M4L4_RNA_Seq_Review
           - file: modules/module_4_rnaseq_in_r/practice/M4P1_Intro_to_DE_Analysis
           - file: modules/module_4_rnaseq_in_r/practice/M4P2_Functional_Analysis
