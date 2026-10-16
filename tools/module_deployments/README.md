@@ -1,4 +1,4 @@
-### Module Deployments for PS4001/PS7001
+### Module Deployments for PS4002/PS7001
 
 ## Scripts
 
