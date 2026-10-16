@@ -48,6 +48,13 @@ GSE79275 root FASTQs (`fetch_data.sh opt3`); practice files (`fetch_data.sh prac
 
 See [`data/README.md`](../../data/README.md) for accessions and citations.
 
+## Adapted material
+
+| Notebook / section | Source and license | Changes |
+|---|---|---|
+| M2L2, Illumina cluster-generation figure | ["Cluster Generation.png"](https://commons.wikimedia.org/wiki/File:Cluster_Generation.png) by DMLapato, Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Unchanged; linked from Wikimedia Commons (not stored here) and credited under the image |
+| M2P1, FastQC example plots | [Computational Genomics Tutorial](https://genomics.sschmeier.com/) by Sebastian Schmeier ([sschmeier/genomics](https://github.com/sschmeier/genomics)), MIT License | Unchanged; linked from the tutorial site (not stored here) and credited under the images |
+
 ## Not included in the public version
 
 - The RNA-seq workflow figures `M2P1RNASeqPipeline.png` and `M2P3PreprocessingSteps.png` were removed because the original source could not be confirmed.

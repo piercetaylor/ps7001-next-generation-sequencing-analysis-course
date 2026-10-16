@@ -43,6 +43,8 @@ was changed.
 5. Figures reproduced from open-access articles under CC BY 4.0:
    Love, Huber & Anders (2014) Genome Biology 15:550, and
    Jackson, Cerveau & Posnien (2024) Frontiers in Zoology 21:17.
+   A "differential expression" figure by Paul Pavlidis (University of
+   British Columbia), as reproduced in the HBC lessons (CC BY 4.0).
 
 6. Public datasets (NCBI GEO/SRA, EMBL-EBI ENA, Ensembl Plants, TAIR, and
    Bioconductor data packages). Apart from the airway tables in item 9,
@@ -54,7 +56,8 @@ was changed.
    MACS2, HOMER, IGV, BLAST+, SRA Toolkit, etc.) are not redistributed and
    remain under their own licenses.
 
-8. Trademarks and logos that appear in screenshots belong to their owners.
+8. Trademarks and logos that appear in screenshots and diagrams belong to
+   their owners.
 
 9. EXCEPTION: material licensed under CC BY-NC-SA 4.0.
    The following files are adapted from, or copied from, the 4-VA JMU 2017
@@ -89,3 +92,11 @@ was changed.
    https://github.com/stephenturner/annotables), built from Ensembl data,
    and the airway tables derive from GEO series GSE52778 and the
    Bioconductor "airway" package (Himes et al. 2014, PLoS One 9:e99625).
+
+10. Images displayed from external sites (linked, not stored in this
+    repository), each credited under the image:
+    - "Cluster Generation.png" by DMLapato, Wikimedia Commons, CC BY-SA 4.0
+      (https://commons.wikimedia.org/wiki/File:Cluster_Generation.png);
+    - FastQC example plots from the Computational Genomics Tutorial by
+      Sebastian Schmeier (https://github.com/sschmeier/genomics), MIT
+      License, Copyright (c) 2020 Sebastian Schmeier.

@@ -43,7 +43,7 @@ See [`data/README.md`](../../data/README.md) for accessions and citations.
 | Notebook / section | Source and license | Changes |
 |---|---|---|
 | M4L3 and `data/airway/` | [Count-Based Differential Expression Analysis of RNA-seq Data](https://4va.github.io/biodatasci/r-rnaseq-airway.html) by Stephen Turner (4-VA JMU 2017 Biological Data Science Workshop, [4va/biodatasci](https://github.com/4va/biodatasci)), [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). **M4L3 and its data files are distributed under CC BY-NC-SA 4.0**, not under the repository's all-rights-reserved notice | Reduced to the DESeq2 and plotting sections; worked `ggplot2` MA/volcano code with line-by-line notes; `pheatmap` heat map; paths changed to `data/airway/` |
-| M4L4, M4P1, M4P2 | [HBC Introduction to DGE](https://hbctraining.github.io/Intro-to-DGE/) (Harvard Chan Bioinformatics Core (HBC) training materials, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)) | Example data replaced with the Arabidopsis GSE79275 count matrix (opt3-2/Col-0, with and without Cd); R code adapted to this design; third-party figures that HBC reproduces were removed |
+| M4L4, M4P1, M4P2 | [HBC Introduction to DGE](https://hbctraining.github.io/Intro-to-DGE/) (Harvard Chan Bioinformatics Core (HBC) training materials, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)) | Example data replaced with the Arabidopsis GSE79275 count matrix (opt3-2/Col-0, with and without Cd); R code adapted to this design. HBC's own figures are kept under CC BY 4.0; figures that HBC reproduces from openly licensed sources (DESeq2 documentation, Paul Pavlidis) are credited under each image, and the rest were removed |
 
 ## Not included in the public version
 

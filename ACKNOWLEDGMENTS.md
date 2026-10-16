@@ -20,6 +20,9 @@ under its own license.
 | `module_1_bash_hpc/resources/images/conda-env2-GeoHackWeek.png` (used in M1P1) | [GeoHackWeek: Conda tutorial](https://geohackweek.github.io/datasharing/01-conda-tutorial/) ([geohackweek/datasharing](https://github.com/geohackweek/datasharing)) | GeoHackWeek contributors | CC BY 4.0 (LICENSE.md in the source repository) | Unchanged; credited in the notebook |
 | nf-core metro-map images in M6L2, M6P1, M7P1 | [nf-core/rnaseq](https://github.com/nf-core/rnaseq), [nf-core/chipseq](https://github.com/nf-core/chipseq) | nf-core community | MIT | Unchanged; credited under each image |
 | Figure in M5L1 (alignment strategies) | Jackson DJ, Cerveau N, Posnien N. *Front. Zool.* 2024;21:17, Fig. 2, [doi:10.1186/s12983-024-00538-y](https://doi.org/10.1186/s12983-024-00538-y) | the authors | CC BY 4.0 (publisher page) | Unchanged; credited |
+| Figure in M2L2 (Illumina cluster generation) | ["Cluster Generation.png"](https://commons.wikimedia.org/wiki/File:Cluster_Generation.png), Wikimedia Commons | DMLapato | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (file page) | Unchanged; linked from Wikimedia Commons, not copied into this repository; credited under the image |
+| FastQC example plots in M2P1 (`fastqc_bad1.png`, `fastqc_bad3.png`) | [Computational Genomics Tutorial](https://genomics.sschmeier.com/) ([sschmeier/genomics](https://github.com/sschmeier/genomics)) | Sebastian Schmeier | [MIT](https://github.com/sschmeier/genomics/blob/master/LICENSE), Copyright (c) 2020 Sebastian Schmeier | Unchanged; linked from the tutorial site, not copied into this repository; credited under the images |
+| "Differential expression" figure in M4P1 | Paul Pavlidis (University of British Columbia), as reproduced in the HBC Intro-to-DGE lessons | P. Pavlidis / HBC | CC BY 4.0 (HBC lessons) | Unchanged; credited under the image |
 | Shrunken-LFC and rlog figures in M4P1 | Love MI, Huber W, Anders S. *Genome Biol.* 2014;15:550, [doi:10.1186/s13059-014-0550-8](https://doi.org/10.1186/s13059-014-0550-8), and the DESeq2 documentation, as reproduced in the HBC lessons | the authors / HBC | CC BY 4.0 | Unchanged; credited |
 
 ### Flagged and not published
@@ -68,7 +71,13 @@ citation:
   was kept with the username blacked out.
 
 The remaining screenshots are the author's own (Jupyter, IGV, MultiQC,
-RStudio, NCBI GEO record pages) or are credited above.
+RStudio, RSS OnDemand, NCBI GEO record pages) or are credited above. In
+M4L4, M4P1 and M4P2, figures without their own caption come from the HBC
+lessons named in the notebook's "Adapted from" box (CC BY 4.0); the box says
+so. The course-format diagram in M1L2 is the author's own; the product logos
+in it (Canvas, Jupyter, conda, Bioconductor, R, Python and others) are
+trademarks of their owners and are used only to identify the tools. NCBI GEO
+pages are U.S. government works.
 
 ## Datasets
 
@@ -79,7 +88,7 @@ In short:
 - **GSE128156 / GSE128157**: McInturf SA, et al. *J Exp Bot.* 2022;73(1):324-338. [doi:10.1093/jxb/erab393](https://doi.org/10.1093/jxb/erab393)
 - **GSE60143 / GSE60141 (DAP-seq)**: O'Malley RC, et al. *Cell.* 2016;165(5):1280-1292. [doi:10.1016/j.cell.2016.04.038](https://doi.org/10.1016/j.cell.2016.04.038); protocol: Bartlett A, et al. *Nat Protoc.* 2017;12(8):1659-1672. [doi:10.1038/nprot.2017.055](https://doi.org/10.1038/nprot.2017.055)
 - **GSE72548**: Shanks CM, et al. *Mol Plant Microbe Interact.* 2016;29(1):57-68. [doi:10.1094/MPMI-07-15-0156-R](https://doi.org/10.1094/MPMI-07-15-0156-R)
-- **SRR1971253**: Tan EH, et al. *eLife.* 2015;4:e06516. [doi:10.7554/eLife.06516](https://doi.org/10.7554/eLife.06516) (citation to be confirmed)
+- **SRR1971253**: Tan EH, Henry IM, Ravi M, et al. Catastrophic chromosomal restructuring during genome elimination in plants. *eLife.* 2015;4:e06516. [doi:10.7554/eLife.06516](https://doi.org/10.7554/eLife.06516) (BioProject PRJNA269994; checked against ENA and PubMed PMID 25977984)
 - **GSE52778 / airway**: Himes BE, et al. *PLoS One.* 2014;9(6):e99625. [doi:10.1371/journal.pone.0099625](https://doi.org/10.1371/journal.pone.0099625); Love M. *airway* Bioconductor package, [doi:10.18129/B9.bioc.airway](https://doi.org/10.18129/B9.bioc.airway)
 - **Ensembl Plants (release 62)**: Yates AD, et al. *Nucleic Acids Res.* 2022;50(D1):D996-D1003. [doi:10.1093/nar/gkab1007](https://doi.org/10.1093/nar/gkab1007)
 - **TAIR10**: Lamesch P, et al. *Nucleic Acids Res.* 2012;40:D1202-D1210. [doi:10.1093/nar/gkr1090](https://doi.org/10.1093/nar/gkr1090)

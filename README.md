@@ -9,6 +9,9 @@ on public *Arabidopsis thaliana* iron-homeostasis and cadmium datasets.
 
 **Author:** Pierce Taylor
 
+**Read online:** [piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course](https://piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course/)
+· **Run the R notebooks in the browser:** [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/piercetaylor/ps7002-next-generation-sequencing-analysis-course/main?urlpath=lab/tree/modules/module_4_rnaseq_in_r)
+
 > This repository is a portfolio copy of the course. Answer keys, grading
 > material and student work are not included. Some lessons were adapted
 > from openly licensed material; see [Adapted teaching materials](#adapted-teaching-materials).
@@ -73,8 +76,8 @@ _config.yml, _toc.yml   Jupyter Book site configuration
 
 ## Getting started
 
-The notebooks are meant to be **read** on GitHub or on the Jupyter Book
-site. They were built to **run** on an HPC.
+The notebooks are meant to be **read** on GitHub or on the
+[Jupyter Book site](https://piercetaylor.github.io/ps7002-next-generation-sequencing-analysis-course/). They were built to **run** on an HPC.
 
 ```bash
 git clone https://github.com/piercetaylor/ps7002-next-generation-sequencing-analysis-course.git
@@ -115,7 +118,7 @@ All sequencing data are public and are downloaded, not committed:
 | [GSE128156](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128156) / [GSE128157](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128157) (cadmium) | Modules 2, 5 | McInturf et al. 2022, *J Exp Bot.* [doi:10.1093/jxb/erab393](https://doi.org/10.1093/jxb/erab393) |
 | [GSE60143](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60143) / GSE60141 (DAP-seq, ARF TFs) | Module 7 | O'Malley et al. 2016, *Cell.* [doi:10.1016/j.cell.2016.04.038](https://doi.org/10.1016/j.cell.2016.04.038) |
 | [GSE72548](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE72548) (cytokinin, nematode) | Module 6 | Shanks et al. 2016, *MPMI.* [doi:10.1094/MPMI-07-15-0156-R](https://doi.org/10.1094/MPMI-07-15-0156-R) |
-| SRR1971253 | Module 2 practice | Tan et al. 2015, *eLife* (citation to be confirmed) |
+| [SRR1971253](https://www.ebi.ac.uk/ena/browser/view/SRR1971253) (BioProject PRJNA269994) | Module 2 practice | Tan et al. 2015, *eLife.* [doi:10.7554/eLife.06516](https://doi.org/10.7554/eLife.06516) |
 | GSE52778 / Bioconductor `airway` (tables from 4va/biodatasci, CC BY-NC-SA 4.0) | Module 4 (M4L3) | Himes et al. 2014, *PLoS One.* [doi:10.1371/journal.pone.0099625](https://doi.org/10.1371/journal.pone.0099625) |
 | Ensembl Plants release 62 TAIR10; TAIR10 blast sets | References | Yates et al. 2022; Lamesch et al. 2012 |
 
@@ -135,7 +138,8 @@ its license and the changes made.
 | Harvard Chan Bioinformatics Core (HBC): [Intro-to-DGE](https://hbctraining.github.io/Intro-to-DGE/), [Intro-to-rnaseq-hpc-O2](https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/), [Intro-to-ChIPseq](https://hbctraining.github.io/Intro-to-ChIPseq/) | CC BY 4.0 | M4L4, M4P1, M4P2, M6P2, M5L1 (STAR section), M7L3 (QC/MACS2 sections) |
 | Stephen Turner (UVA), [Count-Based Differential Expression Analysis of RNA-seq Data](https://4va.github.io/biodatasci/r-rnaseq-airway.html), 4-VA JMU 2017 Biological Data Science Workshop ([4va/biodatasci](https://github.com/4va/biodatasci)) | CC BY-NC-SA 4.0 | M4L3 and the `data/airway/` tables. **These are shared under CC BY-NC-SA 4.0** (see [LICENSE](LICENSE), item 9) |
 | Ram Basnet, [Bash-Script-Fundamentals](https://github.com/rambasnet/Bash-Script-Fundamentals) | MIT | M1P2 and the Module 1 demo scripts |
-| GeoHackWeek conda tutorial; nf-core metro maps; figures from Love et al. 2014 and Jackson et al. 2024 | CC BY 4.0 / MIT | Single images, credited where they appear |
+| GeoHackWeek conda tutorial; nf-core metro maps; figures from Love et al. 2014, Jackson et al. 2024 and Paul Pavlidis (via HBC) | CC BY 4.0 / MIT | Single images, credited where they appear |
+| DMLapato, ["Cluster Generation.png"](https://commons.wikimedia.org/wiki/File:Cluster_Generation.png) (Wikimedia Commons); Sebastian Schmeier, [Computational Genomics Tutorial](https://github.com/sschmeier/genomics) FastQC plots | CC BY-SA 4.0 / MIT | M2L2 and M2P1; linked from the source sites (not stored here) and credited under each image |
 
 Material adapted from sources with NoDerivatives or no public license was
 **left out** (see below). M4L2, which had followed examples from *R for
