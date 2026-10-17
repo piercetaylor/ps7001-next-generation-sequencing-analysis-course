@@ -22,6 +22,7 @@ Most of the work uses public *Arabidopsis* iron-homeostasis and cadmium datasets
 | [6](modules/module_6_full_rnaseq_workflow/README.md) | A full RNA-seq workflow and study design |
 | [7](modules/module_7_dap_seq/README.md) | DAP-seq: peak calling (MACS2), motifs (HOMER/MEME) |
 | [8](modules/module_8_capstone/README.md) | Capstone project |
+| [8 (optional)](modules/module_8_scRNA_Seq_OPTIONAL/README.md) | Single-cell RNA-seq: 10x libraries, STARsolo, Seurat clustering of *Arabidopsis* root cells |
 
 Start with [`modules/start_here.ipynb`](modules/start_here.ipynb). Each module
 has its own README with objectives and assignments. Reusable Salmon, STAR and
@@ -33,7 +34,8 @@ to release modules and answers each week in [`tools/`](tools/README.md).
 
 The notebooks were written for the Hellbender HPC (SLURM, large FASTQ files),
 so most are best read rather than run. The Module 4 R notebooks are the
-exception: they run on a laptop or on Binder.
+exception: they run on a laptop or on Binder. The optional Module 8 Seurat
+practice (M8_P1) also runs on a laptop with `environment/module_8_seurat.yml`.
 
 ```bash
 git clone https://github.com/piercetaylor/ps7001-next-generation-sequencing-analysis-course.git

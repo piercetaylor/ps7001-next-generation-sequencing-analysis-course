@@ -75,6 +75,7 @@ parts:
           - file: modules/module_6_full_rnaseq_workflow/exercise/M6E1_Full_RNA_Seq_Analysis
       - file: modules/module_7_dap_seq/README
         sections:
+          - file: modules/module_7_dap_seq/module_7_overview
           - file: modules/module_7_dap_seq/lab/M7L1_DAP_Seq_Overview
           - file: modules/module_7_dap_seq/lab/M7L2_DAP_Seq_Interpreting_Results
           - file: modules/module_7_dap_seq/lab/M7L3_DAP_Seq_Analysis_Pipeline
@@ -84,6 +85,12 @@ parts:
       - file: modules/module_8_capstone/README
         sections:
           - file: modules/module_8_capstone/module_8_final_project
+      - file: modules/module_8_scRNA_Seq_OPTIONAL/README
+        sections:
+          - file: modules/module_8_scRNA_Seq_OPTIONAL/module_8_Overview_OPTIONAL
+          - file: modules/module_8_scRNA_Seq_OPTIONAL/lab/M8_L1_scRNA_Seq_Overview
+          - file: modules/module_8_scRNA_Seq_OPTIONAL/lab/M8_L2_scRNA_Seq_Data_Pre_Processing_and_QC
+          - file: modules/module_8_scRNA_Seq_OPTIONAL/practice/M8_P1_scRNA_Seq_Seurat_Analysis
   - caption: Pipelines and tooling
     chapters:
       - file: pipelines/README

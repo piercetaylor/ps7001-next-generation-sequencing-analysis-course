@@ -1,0 +1,16 @@
+name: module_8_seurat
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-base=4.4
+  - r-irkernel
+  - r-seurat>=5.0
+  - r-seuratobject>=5.0
+  - r-tidyverse
+  - r-patchwork
+  - r-r.utils
+  - r-rtsne
+  - r-metap
+  - bioconductor-glmgampoi

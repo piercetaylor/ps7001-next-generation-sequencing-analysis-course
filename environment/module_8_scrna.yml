@@ -1,0 +1,17 @@
+name: module_8_scRNA
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bash_kernel
+  - star>=2.7.10b
+  - sra-tools
+  - entrez-direct
+  - bioconda::fastqc
+  - multiqc
+  - fastp
+  - seqkit
+  - samtools
+  - pigz
+  - wget
