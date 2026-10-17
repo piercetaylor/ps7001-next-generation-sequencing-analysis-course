@@ -11,6 +11,10 @@ Protein-DNA interaction assays (DAP-seq, ChIP-seq, ATAC-seq) and a scripted DAP-
 
 ## Assignments
 
+**Overview / start here**
+
+- [Module 7 Checklist](module_7_overview.ipynb)
+
 **Labs**
 
 - [M7 - DAP-Seq Overview](lab/M7L1_DAP_Seq_Overview.ipynb)

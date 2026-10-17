@@ -45,6 +45,7 @@ data/geo/
 data/reference/
 data/blast/
 data/dapseq/
+data/scrna/
 data/tmp/
 references/
 results/

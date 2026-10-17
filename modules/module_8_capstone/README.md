@@ -14,6 +14,8 @@ The final project: students choose a public dataset and run a complete RNA-seq (
 
 - [Module 8 Final Project](module_8_final_project.ipynb)
 
+**Optional:** [single-cell RNA-seq lab and practice](../module_8_scRNA_Seq_OPTIONAL/README.md) (10x, STARsolo, Seurat)
+
 ## Reference notebooks (formerly `Tutorials/`)
 
 **DE analysis**

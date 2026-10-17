@@ -25,9 +25,16 @@
 #   airway_tables  annotables_grch38.csv for M4L3 into data/airway/ (the two
 #              airway CSVs are committed); CC BY-NC-SA 4.0, see
 #              data/airway/NOTICE.txt                                     ~8 MB
+#   scrna_ryu  GSE123013 Cell Ranger matrices, 5 root scRNA-seq samples
+#              (Ryu et al. 2019; Module 8 optional, M8_P1)               ~190 MB
+#   scrna_fastq  first SCRNA_SPOTS (default 10,000,000) spots of SRR8257102
+#              (GSE123013 WT_rep2) as 10x R1/R2/I1 FASTQs, plus the 10x v2
+#              barcode whitelist (Module 8 optional, M8_L2); needs the SRA
+#              Toolkit (fastq-dump) because ENA does not keep the barcode
+#              read for these runs                                       ~1.5 GB
 #   small      geo + airway_tables + a check of the committed examples
 #              (what Binder needs)
-#   all        every target above
+#   all        every target above except the two scrna targets
 #
 # Requirements: bash, curl, gzip, awk, head. FASTQ targets use HTTPS downloads from ENA; if
 # FASTQ_TOOL=sra is set they use the SRA Toolkit (prefetch +
@@ -199,6 +206,27 @@ fetch_airway_tables() {  # M4L3: 4va/biodatasci data files (Stephen Turner, CC B
     done
 }
 
+fetch_scrna_ryu() {  # GSE123013 (Ryu et al. 2019): Cell Ranger 2.1.1 filtered matrices, TAIR10
+    local o="$DATA_DIR/scrna/GSE123013"
+    download "${GEO}/GSE123nnn/GSE123013/suppl/GSE123013_RAW_matrices.tar.gz" "$o/GSE123013_RAW_matrices.tar.gz"
+    [[ -d "$o/Sample_WT-WERGFP" ]] || tar -xzf "$o/GSE123013_RAW_matrices.tar.gz" -C "$o"
+}
+
+fetch_scrna_fastq() {  # M8_L2: a subset of GSE123013 WT_rep2 (SRR8257102) as 10x-style FASTQs
+    local acc=SRR8257102 name=WT_rep2 spots="${SCRNA_SPOTS:-10000000}"
+    local o="$DATA_DIR/scrna/fastq/${name}"
+    download "https://raw.githubusercontent.com/10XGenomics/supernova/master/tenkit/lib/python/tenkit/barcodes/737K-august-2016.txt" \
+             "$DATA_DIR/scrna/whitelist/737K-august-2016.txt"
+    if [[ -s "$o/${name}_S1_L001_R2_001.fastq.gz" ]]; then log "exists: ${name} FASTQs"; return 0; fi
+    command -v fastq-dump > /dev/null || { log "scrna_fastq needs fastq-dump (sra-tools)"; return 1; }
+    mkdir -p "$o"
+    # SRA stores the three 10x reads of each spot as _1 (R1, 26 bp: barcode+UMI), _2 (R2, 115 bp: cDNA), _3 (I1, 8 bp: sample index)
+    fastq-dump "$acc" -X "$spots" --split-files --gzip -O "$o"   # fastq-dump keeps technical reads by default
+    mv "$o/${acc}_1.fastq.gz" "$o/${name}_S1_L001_R1_001.fastq.gz"
+    mv "$o/${acc}_2.fastq.gz" "$o/${name}_S1_L001_R2_001.fastq.gz"
+    mv "$o/${acc}_3.fastq.gz" "$o/${name}_S1_L001_I1_001.fastq.gz"
+}
+
 check_examples() {
     local f
     for f in ExampleFasta.txt Potential_Iron_Homeostasis_Genes_Arabidopsis.txt Common_Genes_Arabidopsis.txt ATOPT3.fa; do
@@ -207,7 +235,7 @@ check_examples() {
     log "committed example files present"
 }
 
-[[ $# -ge 1 ]] || { sed -n '2,36p' "$0"; exit 1; }
+[[ $# -ge 1 ]] || { sed -n '2,42p' "$0"; exit 1; }
 for target in "$@"; do
     case "$target" in
         geo)       fetch_geo ;;
@@ -220,6 +248,8 @@ for target in "$@"; do
         gse72548)  fetch_gse72548 ;;
         airway)    fetch_airway ;;
         airway_tables) fetch_airway_tables ;;
+        scrna_ryu) fetch_scrna_ryu ;;
+        scrna_fastq) fetch_scrna_fastq ;;
         small)     check_examples; fetch_geo; fetch_airway_tables ;;
         all)       check_examples; fetch_geo; fetch_airway_tables; fetch_reference; fetch_blast; fetch_practice
                    fetch_opt3; fetch_cd; fetch_dapseq; fetch_gse72548; fetch_airway ;;
